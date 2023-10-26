@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>My Book Recommender</title>
+    <style>
+        .navbar-custom {
+            background-color: #005D5D;
+        }
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-nav .nav-link {
+            color: white;
+            font-size: 20px;
+        }
+        .text-white{
+            color:white;
+        }
+    </style>
+</head>
+
+<body style="background-color: #F5F5DC">
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" style="font-size:40px;">My Book Recommender</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/recommend">Recommend</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="padding-top: 30px;">
+                <h1 style="font-size: 40px; color: black;">Top 50 books</h1>
+            </div>
+
+            {%for i in range(book_name|length) %}
+            <div class="col-md-3" style="margin-top:50px; padding: 40px;">
+                <div class="card">
+                    <div class="card-body">
+                        <img class="card-img-top" src="{{ image[i] }}" alt="">
+                        <h3>{{ book_name[i] }}</h3>
+                        <p class="text">by {{ author[i] }}</p>
+                        <p class="text">Votes - {{ votes[i] }}</p>
+                        <p class="text">Ratings - {{ rating[i] }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
+        </div>
+    </div>
+
+
+    <footer class="container">
+    <p class="float-end" style="font-size: 25px;"><a href="#" style="color:black;">Back to top</a></p>
+        <p style="color:black; font-size: 25px;">© 2022-2023 Company, Inc.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
